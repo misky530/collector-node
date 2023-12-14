@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../utils/sqlite'); // 导入数据库模块
+const deviceUtil = require('../utils/deviceUtil'); // 导入数据库模块
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -10,11 +10,8 @@ router.get('/', function(req, res, next) {
 router.get('/deviceList', async (req, res) => {
     try {
         let sql = `SELECT * FROM da_device`; // 替换你的 SQL 查询
-        const rows = await db.getData(sql);
-        res.json({
-            "message": "success",
-            "data": rows
-        });
+        const rows = await deviceUtil.getAllDevice();
+        res.json(rows);
     } catch (err) {
         res.status(400).json({ "error": err.message });
     }
