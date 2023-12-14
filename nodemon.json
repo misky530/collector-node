@@ -1,5 +1,5 @@
 {
-  "watch": ["routes/", "views/", "src/"],
+  "watch": ["routes/", "views/", "src/","utils/"],
   "ext": "js,json,pug",
   "ignore": ["src/tests/"]
 

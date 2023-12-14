@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/deviceList', async (req, res) => {
     try {
-        let sql = `SELECT * FROM da_device`; // 替换你的 SQL 查询
         const rows = await deviceUtil.getAllDevice();
         res.json(rows);
     } catch (err) {
