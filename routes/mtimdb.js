@@ -18,10 +18,5 @@ router.get('/deviceList', async (req, res) => {
 
 // ... 其他路由和中间件 ...
 
-// 在服务器关闭时关闭数据库连接
-process.on('SIGINT', () => {
-    db.close();
-    process.exit();
-});
 
 module.exports = router;
