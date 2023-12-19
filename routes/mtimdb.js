@@ -3,16 +3,16 @@ var router = express.Router();
 const deviceUtil = require('../utils/deviceUtil'); // 导入数据库模块
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     res.send('welcome to mtimdb');
 });
 
 router.get('/deviceList', async (req, res) => {
     try {
-        const rows = await deviceUtil.getAllDevice();
-        res.json(rows);
+        await deviceUtil.collectData();
+        res.json({"message": "success"});
     } catch (err) {
-        res.status(400).json({ "error": err.message });
+        res.status(400).json({"error": err.message});
     }
 });
 
